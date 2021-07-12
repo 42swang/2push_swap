@@ -1,6 +1,6 @@
 #include "../include/push_swap.h"
 
-void	push(t_stack **start, t_stack **dest)
+void	push(t_list *start, t_stack *dest)
 {
 	t_stack	*start_new_top;
 
@@ -13,3 +13,5 @@ void	push(t_stack **start, t_stack **dest)
 	start = start_new_top;
 	start_new_top = 0;
 }
+
+start->top = 

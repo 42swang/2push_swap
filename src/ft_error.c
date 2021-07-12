@@ -1,10 +1,17 @@
 #include "../include/push_swap.h"
 
-int	ft_error(int num)
+void	ft_error(t_list *stack)
 {
-	if (num == -1 )
+	t_node	*p;
+	t_node	*tmp;
+
+	p = stack->tail;
+	while (p != 0)
 	{
-		printf("error\n");
+		tmp = p;
+		p = p->prev;
+		free(tmp);
+		tmp = 0;
 	}
-	return (0);
+	exit(0);
 }

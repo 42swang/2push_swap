@@ -9,26 +9,31 @@
 # define SAME -1
 # define ARGC_ERROR -1
 
-typedef struct	s_stack
+typedef struct	s_node
 {
 	int	data;
-	struct s_stack	*prev;
-	struct s_stack	*next;
-}				t_stack;
+	int	idx;
+	struct s_node	*prev;
+	struct s_node	*next;
+}	t_node;
 
-typedef struct	s_info
+typedef struct	s_list
 {
-	char **argv;
 	int	size;
-	t_stack	*top;
-	t_stack	*bot;
-}	t_info;
+	t_node	*curr;
+	t_node	*head;
+	t_node	*tail;
+}	t_list;
 
+
+/*libft*/
+
+void	*ft_memset(void *b, int c, size_t len);
+void	*ft_calloc(size_t count, size_t size);
 int	ft_atoi(const char *str);
 int	ft_strlen(const char *str);
 int	ft_isdigit(int c);
 
-void	push(t_stack **start, t_stack **dest);
-
+/*src*/
 
 #endif

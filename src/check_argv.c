@@ -1,18 +1,18 @@
 #include "../include/push_swap.h"
 
-int	check_same(t_info *info)
+void	check_same(t_list *list)
 {
-	t_stack *i;
-	t_stack *j;
+	t_node	*i;
+	t_node	*j;
 
-	i = info->top;
+	i = list->head;
 	while (i != 0)
 	{
 		j = i->next;
 		while(j != 0)
 		{
 			if (i->data == j->data)
-				return (SAME);
+				ft_error(list);
 			else
 				j = j->next;
 		}
@@ -22,7 +22,7 @@ int	check_same(t_info *info)
 }
 
 
-int	check_digit(char *str)
+void	check_digit(char *str, t_list *a)
 {
 	int	i;
 
@@ -32,31 +32,27 @@ int	check_digit(char *str)
 		if (i == 0 && str[i] == '-')
 			i++;
 		if (!(ft_isdigit(str[i])))
-			return (NOT_DIGIT);
+			ft_error(a);
 		i++;
 	}
 	return (1);
 }
 
-int	check_int(char *str)
+void	check_int(char *str, t_list *a)
 {
 	int	str_len;
-	int ret;
 	int	nbr;
 
 	str_len = ft_strlen(str);
-	if (str[0] == '-' && str_len > 11)
-		return (NOT_INT_RAG);
-	else if (str[0] != '-' && str_len > 10)
-		return (NOT_INT_RAG);
 	nbr = ft_atoi(str);
 	if (str_len != 1 && nbr == 0)
-		return (NOT_INT_RAG);
-	//음수가 아니면서 int자료형의 자릿수를 초과하는경우
-	//음수일 땐 -를 포함한 int자료형의 자릿수를 초과하는경우
+		ft_error(a);
+	// 아토이함수에서 인트형 범위를 초과하는 경우에는 0을 반환하도록 설정
+	// 만약 인자가 "0000000" 이렇게 들어오면 어떻게 처리해야할까?
 	return (1);
 }
 
+/*
 int	push_swap(t_info *info)
 {
 	char	**data;
@@ -80,3 +76,4 @@ int	push_swap(t_info *info)
 	if (ret == SAME)
 		return (ft_error(SAME));
 }
+*/

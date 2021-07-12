@@ -1,18 +1,37 @@
 #include "include/push_swap.h"
 
+
 int	main(int ac, char **av)
 {
-	t_info	*info;
-	int	ret;
+	t_list	*stack_a;
+	t_list	*stack_b;
+	t_node	*p;
 
 	if (ac == 1)
-		return (ft_error(ARGC_ERROR));
-	info = malloc(sizeof(t_info));
-	if (!(info))
-		return (ft_error(-1));
-	init_info(info);
-	info->argv = **av;
-	return (push_swap(info));
+		return (0);
+	stack_a = (t_list *)malloc(sizeof(t_list));
+	if (!(stack_a))
+		return (0);
+	init_info(stack_a);
+	make_stack_a(stack_a, &av);
+
+	printf("top : %d\n", stack_a->head->data);
+	printf("bot : %d\n", stack_a->tail->data);
+	p = stack_a->head;
+	while (p != 0)
+	{
+		printf("[%d]\n", p->data);
+		p = p->next;
+	}
+
+	/*
+	stack_b = (t_list *)malloc(sizeof(t_list));
+//	if (!(stack_b))
+//		ft_error(stack_a);
+	//init_info(stack_b);
+	//push_swap(stack_a, stack_b);
+*/
+
 }
 	/*
 	while (argv[i])
