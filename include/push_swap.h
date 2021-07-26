@@ -1,13 +1,16 @@
 #ifndef PUSH_SWAP_H
 # define PUSH_SWAP_H
 
-#include <stdio.h>
 #include <stdlib.h>
+#include <unistd.h>
+#include <stdio.h>
 
+/*
 # define NOT_DIGIT -1
 # define NOT_INT_RAG -1
 # define SAME -1
 # define ARGC_ERROR -1
+*/
 
 typedef struct	s_node
 {
@@ -19,21 +22,68 @@ typedef struct	s_node
 
 typedef struct	s_list
 {
-	int	size;
-	t_node	*curr;
+	int	count;
+	t_node	*mini;
+	t_node	*pointer;
 	t_node	*head;
 	t_node	*tail;
 }	t_list;
 
 
 /*libft*/
-
-void	*ft_memset(void *b, int c, size_t len);
-void	*ft_calloc(size_t count, size_t size);
 int	ft_atoi(const char *str);
 int	ft_strlen(const char *str);
 int	ft_isdigit(int c);
+void	*ft_memset(void *b, int c, size_t len);
+void	*ft_calloc(size_t count, size_t size);
+char	*ft_substr(char const *s, unsigned int start, int len);
+char	*ft_strdup(const char *s1);
+char	**ft_split(char const *s, char c);
 
-/*src*/
+/*src - make stack */
+void	make_stack(t_list *a, char **argv);
+void	add_node(char *str, t_list *list);
+
+/* src - argv_check_func*/
+void	check_digit(char *str, t_list *a);
+void	check_int(char *str, t_list *a);
+void	check_same(t_list *list);
+
+/* src - cmd */
+void	push(t_list *start, t_list *dest);
+void	pa(t_list *b, t_list *a);
+void	pb(t_list *a, t_list *b);
+
+void	swap(t_list *list);
+void	sa(t_list *a);
+void	sb(t_list *b);
+void	ss(t_list *a, t_list *b);
+
+void	rotate(t_list *list);
+void	ra(t_list *a);
+void	rb(t_list *b);
+void	rr(t_list *a, t_list *b);
+
+void	r_rotate(t_list *list);
+void	rra(t_list *a);
+void	rrb(t_list *b);
+void	rrr(t_list *a, t_list *b);
+
+/* src - sort*/
+int	issort(t_list *a);
+int	find_min(t_list *list);
+int	find_node(t_list *list, int index);
+void	sort_two(t_list *a);
+void	sort_three(t_list *a);
+void	sort_four(t_list *a, t_list *b);
+void	sort_five(t_list *a, t_list *b);
+void	sort_many(t_list *a, t_list *b);
+
+/* src */
+void	ft_error(int i, t_list *list);
+void	ft_free(t_list *list);
+void	indexing(t_list *list);
+void	push_swap(t_list *a, t_list *b);
+
 
 #endif

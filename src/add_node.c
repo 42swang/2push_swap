@@ -1,29 +1,26 @@
 #include "../include/push_swap.h"
 
-void	add_node(t_list **s, char *str)
+void	add_node(char *str, t_list *list)
 {
 	t_node	*new;
 
-	new = malloc(sizeof(t_node));
+	new = (t_node *)ft_calloc(1,sizeof(t_node));
+	if (!new)
+		ft_error(1, list);
 	new->data = ft_atoi(str);
 	//printf("/%d/\n", ft_atoi(str)); //atoi변환체크
-	new->next = 0;
-	new->prev = 0;
-	new->idx = 0;
-	if (!(*s))
+	if (!(list->head))
 	{
-		*s = new;
-		(*s)->size = 1;
-		(*s)->curr = new;
-		(*s)->head = new;
-		(*s)->tail = new;
+		list->head = new;
+		list->tail = new;
+		list->count = 1;
 	}
 	else
 	{
-		(*s)->tail->next = new;
-		new->prev = (*s)->tail;
-		(*s)->curr = new;
-		(*s)->size += 1;
+		list->tail->next = new;
+		new->prev = list->tail;
+		list->tail = new;
+		list->count += 1;
 	}
 	new = 0;
 }

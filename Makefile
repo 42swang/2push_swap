@@ -15,37 +15,53 @@ RM = rm -rf
 MAIN = main.c
 
 SRC_DIR = ./src/
-
-SRC_NAME = add_node.c\
-			check_argv.c\
+SRC_NAME = command/push.c\
+			command/swap.c\
+			command/rotate.c\
+			command/r_rotate.c\
+			utils/ft_split.c\
+			utils/ft_substr.c\
+			utils/ft_strdup.c\
+			utils/ft_atoi.c\
+			utils/ft_utils.c\
+			sort/issort.c\
+			sort/find_min.c\
+			sort/find_node.c\
+			sort/sort_two.c\
+			sort/sort_three.c\
+			sort/sort_four.c\
+			sort/sort_five.c\
+			sort/sort_many.c\
+			indexing.c\
+			add_node.c\
+			argv_check_func.c\
 			ft_error.c\
-			init_info.c\
+			ft_free.c\
 			make_stack.c\
-			utils.c\
+			push_swap.c
 
 SRCS = $(addprefix $(SRC_DIR), $(SRC_NAME))
 
-OBJ_DIR = ./obj/
 
-OBJ_NAME = $(SRC_NAME:.c=.o)
+OBJS = $(SRCS:.c=.o)
 
-OBJS = $(addprefix $(OBJ_DIR), $(OBJ_NAME))
-
-$(OBJ_DIR)%.o : $(SRC_DIR)%.c
-		@mkdir -p $(OBJ_DIR)
-		$(CC) $(CFLAGS) -c $< -o $@
+.c.o :
+		$(CC) $(CFLAGS) -c $< -o $(<:.c=.o)
 
 all : $(NAME)
-		$(CC) $(CFLAGS) $(PROJ_NAME) -c $(NAME) $(MAIN)
-
+		
 $(NAME) : $(OBJS)
-		$(AR) $(AFLAGS) $(NAME) $(OBJS)
+		$(AR) $(AFLAGS) $@ $^
+		$(CC) $(CFLAGS) -o $(PROJ_NAME) $(NAME) $(MAIN)
 
 clean :
 		$(RM) $(OBJS)
 
 fclean : clean
 		$(RM) $(NAME) $(PROJ_NAME)
+
+run :
+		./$(PROJ_NAME)
 
 re : fclean all
 

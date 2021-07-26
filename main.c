@@ -1,38 +1,59 @@
 #include "include/push_swap.h"
+#include <stdio.h>
 
-
-int	main(int ac, char **av)
+int	main(int argc, char **argv)
 {
 	t_list	*stack_a;
-	t_list	*stack_b;
+	t_list	*stack_b; //변수가 저장되는 공간은 어디지?
+	int	i;
+
+	i = 0;
+	if (argc == 1)
+		ft_error(-1, NULL);
+	stack_a = (t_list *)ft_calloc(1, sizeof(t_list));
+	if (!(stack_a)) // 스택을 메인문에서 만들어도 되는걸까?
+		ft_error(-1, NULL);
+	make_stack(stack_a, argv);
+	if (stack_a->count == 1)
+		ft_free(stack_a);
+	indexing(stack_a);
+	if (issort(stack_a))
+		return (0);
+	stack_b = (t_list *)ft_calloc(1, sizeof(t_list));
+	if(!(stack_b))
+		ft_error(-1, stack_a);
+	push_swap(stack_a, stack_b);
+}
+	/*
+	정렬이 거의 다 되어있을 때
+	별도로 처리하는 과정을 만든다면?
+	
+	*/
+
+	
+	//ft_free(stack_a);
+	//ft_free(stack_b);
+	//----test----//
+	
+	//printf("list->min : %d\n", stack_a->mini->data);
+	/*
 	t_node	*p;
-
-	if (ac == 1)
-		return (0);
-	stack_a = (t_list *)malloc(sizeof(t_list));
-	if (!(stack_a))
-		return (0);
-	init_info(stack_a);
-	make_stack_a(stack_a, &av);
-
-	printf("top : %d\n", stack_a->head->data);
-	printf("bot : %d\n", stack_a->tail->data);
 	p = stack_a->head;
 	while (p != 0)
 	{
-		printf("[%d]\n", p->data);
+		printf("a| %d: [%d]\n", p->idx, p->data);
 		p = p->next;
 	}
-
-	/*
-	stack_b = (t_list *)malloc(sizeof(t_list));
-//	if (!(stack_b))
-//		ft_error(stack_a);
-	//init_info(stack_b);
-	//push_swap(stack_a, stack_b);
-*/
-
-}
+	
+	t_node	*ptr;
+	ptr = stack_b->head;
+	while (ptr != 0)
+	{
+		printf("b| %d: [%d]\n", ptr->idx, ptr->data);
+		ptr = ptr->next;
+	}
+	*/
+//	push_swap(stack_a, stack_b);
 	/*
 	while (argv[i])
 	{
@@ -50,7 +71,9 @@ int	main(int ac, char **av)
 	ret = check_same(info); //4. 중복체크하기
 	if (ret == SAME)
 		return (ft_error(SAME));
-	/*printf stack
+		*/
+	/*
+	printf stack
 	printf("top : %d\n", info->top->data);
 	printf("bot : %d\n", info->bot->data);
 	p = info->top;
