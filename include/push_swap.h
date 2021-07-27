@@ -45,6 +45,7 @@ void	make_stack(t_list *a, char **argv);
 void	add_node(char *str, t_list *list);
 
 /* src - argv_check_func*/
+int	check_space(char *str);
 void	check_digit(char *str, t_list *a);
 void	check_int(char *str, t_list *a);
 void	check_same(t_list *list);

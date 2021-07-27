@@ -3,6 +3,7 @@
 void	make_stack(t_list *a, char **argv)
 {
 	char	**arr;
+	int	space;
 	int	i;
 	int	j;
 
@@ -10,6 +11,9 @@ void	make_stack(t_list *a, char **argv)
 	while (argv[i])
 	{	
 		if (ft_strlen(argv[i]) == 0)
+			ft_error(1, a);
+		space = check_space(argv[i]);
+		if (space < 0) //체크 스페이스 함수는 공백이 아닌 문자의 인덱스를 반환한다.
 			ft_error(1, a);
 		//if(인자가 모두 스페이스바로 이루어져 있으면) error처리 ex) ./push_swap 1 " " 3
 		arr = ft_split(argv[i], ' ');

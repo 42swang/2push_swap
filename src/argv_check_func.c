@@ -1,5 +1,19 @@
 #include "../include/push_swap.h"
 
+int	check_space(char *str)
+{
+	int	i;
+
+	i = 0;
+	while (str[i] != 0)
+	{
+		if (str[i] != ' ')
+			return (i);
+		i++;
+	}
+	return (-1);
+}
+
 void	check_same(t_list *list)
 {
 	t_node	*i;

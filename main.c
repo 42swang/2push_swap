@@ -23,11 +23,10 @@ int	main(int argc, char **argv)
 	if(!(stack_b))
 		ft_error(-1, stack_a);
 	push_swap(stack_a, stack_b);
-}
 	/*
 	정렬이 거의 다 되어있을 때
 	별도로 처리하는 과정을 만든다면?
-	
+
 	*/
 
 	
@@ -53,6 +52,7 @@ int	main(int argc, char **argv)
 		ptr = ptr->next;
 	}
 	*/
+}
 //	push_swap(stack_a, stack_b);
 	/*
 	while (argv[i])
