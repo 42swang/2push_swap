@@ -52,11 +52,9 @@ void	check_digit(char *str, t_list *a)
 
 void	check_int(char *str, t_list *a)
 {
-	int	str_len;
 	int	nbr;
 	int	i;
 
-	str_len = ft_strlen(str);
 	nbr = ft_atoi(str);
 	i = 0;
 	if (nbr == 0)
