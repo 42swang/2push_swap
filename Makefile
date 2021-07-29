@@ -1,3 +1,15 @@
+# **************************************************************************** #
+#                                                                              #
+#                                                         :::      ::::::::    #
+#    Makefile                                           :+:      :+:    :+:    #
+#                                                     +:+ +:+         +:+      #
+#    By: swang <swang@student.42seoul.kr>           +#+  +:+       +#+         #
+#                                                 +#+#+#+#+#+   +#+            #
+#    Created: 2021/07/29 08:34:04 by swang             #+#    #+#              #
+#    Updated: 2021/07/29 10:21:01 by swang            ###   ########.fr        #
+#                                                                              #
+# **************************************************************************** #
+
 NAME = push_swap.a
 
 PROJ_NAME = push_swap
@@ -55,7 +67,7 @@ $(NAME) : $(OBJS)
 		$(CC) $(CFLAGS) -o $(PROJ_NAME) $(NAME) $(MAIN)
 
 clean :
-		$(RM) $(OBJS)
+		$(RM) $(OBJS) $(NAME)
 
 fclean : clean
 		$(RM) $(NAME) $(PROJ_NAME)

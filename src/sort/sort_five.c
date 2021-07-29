@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   sort_five.c                                        :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: swang <swang@student.42seoul.kr>           +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2021/07/29 08:20:01 by swang             #+#    #+#             */
+/*   Updated: 2021/07/29 08:49:23 by swang            ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "../../include/push_swap.h"
 
 static void	move_to_top(t_list *a, int time)
@@ -17,16 +29,16 @@ static void	move_to_top(t_list *a, int time)
 void	sort_five(t_list *a, t_list *b)
 {
 	int	time;
-	
-	time = find_min(a); //젤 작은애가 몇번째에 있는지 반환하는 함수
+
+	time = find_min(a);
 	move_to_top(a, time);
 	if (issort(a))
 		return ;
-	pb(a,b);
+	pb(a, b);
 	time = find_min(a);
 	move_to_top(a, time);
-	pb(a,b);
+	pb(a, b);
 	sort_three(a);
-	pa(b,a);
-	pa(b,a);
+	pa(b, a);
+	pa(b, a);
 }
