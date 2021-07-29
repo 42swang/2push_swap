@@ -6,13 +6,13 @@
 /*   By: swang <swang@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/29 08:35:52 by swang             #+#    #+#             */
-/*   Updated: 2021/07/29 08:50:05 by swang            ###   ########.fr       */
+/*   Updated: 2021/07/29 16:42:22 by swang            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../include/push_swap.h"
 
-int	count_find(t_list *list)
+static int	count_find(t_list *list)
 {
 	int	find;
 

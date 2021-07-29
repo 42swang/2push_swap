@@ -6,7 +6,7 @@
 /*   By: swang <swang@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/29 08:33:55 by swang             #+#    #+#             */
-/*   Updated: 2021/07/29 08:45:05 by swang            ###   ########.fr       */
+/*   Updated: 2021/07/29 16:50:05 by swang            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,7 @@ int	main(int argc, char **argv)
 		return (0);
 	stack_b = (t_list *)ft_calloc(1, sizeof(t_list));
 	if (!(stack_b))
-		ft_error(-1, stack_a);
+		ft_error(1, stack_a);
 	push_swap(stack_a, stack_b);
 	ft_free(&stack_a);
 	ft_free(&stack_b);

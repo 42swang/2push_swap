@@ -6,7 +6,7 @@
 /*   By: swang <swang@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/29 08:23:04 by swang             #+#    #+#             */
-/*   Updated: 2021/07/29 08:23:07 by swang            ###   ########.fr       */
+/*   Updated: 2021/07/29 16:47:18 by swang            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ void	ft_error(int i, t_list *list)
 
 	if (i == -1)
 	{
-		write(1, "Error\n", 6);
+		write(2, "Error\n", 6);
 		exit(0);
 	}
 	p = list->tail;
@@ -32,6 +32,6 @@ void	ft_error(int i, t_list *list)
 	}
 	free(list);
 	list = 0;
-	write(1, "Error\n", 6);
+	write(2, "Error\n", 6);
 	exit(0);
 }

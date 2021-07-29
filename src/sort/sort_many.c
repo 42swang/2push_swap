@@ -6,7 +6,7 @@
 /*   By: swang <swang@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/29 08:50:12 by swang             #+#    #+#             */
-/*   Updated: 2021/07/29 16:11:16 by swang            ###   ########.fr       */
+/*   Updated: 2021/07/29 16:43:30 by swang            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,7 +48,7 @@ static void	move_to_top_a(t_list *list, int time)
 	}
 }
 
-void	sort_atob(t_list *a, t_list *b, int all_count, int range)
+static void	sort_atob(t_list *a, t_list *b, int all_count, int range)
 {
 	int	i;
 	int	find;
@@ -76,7 +76,7 @@ void	sort_atob(t_list *a, t_list *b, int all_count, int range)
 	}
 }
 
-void	sort_btoa(t_list *a, t_list *b)
+static void	sort_btoa(t_list *a, t_list *b)
 {
 	int	find;
 	int	b_to_a;
