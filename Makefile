@@ -6,21 +6,15 @@
 #    By: swang <swang@student.42seoul.kr>           +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/07/29 08:34:04 by swang             #+#    #+#              #
-#    Updated: 2021/07/29 10:41:38 by swang            ###   ########.fr        #
+#    Updated: 2021/07/29 18:14:27 by swang            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME = push_swap.a
-
-PROJ_NAME = push_swap
+NAME = push_swap
 
 CC = gcc
 
 CFLAGS = -Wall -Wextra -Werror
-
-AR = ar
-
-AFLAGS = -rcs
 
 RM = rm -rf
 
@@ -54,8 +48,7 @@ SRC_NAME = command/push.c\
 
 SRCS = $(addprefix $(SRC_DIR), $(SRC_NAME))
 
-
-OBJS = $(SRCS:.c=.o)
+OBJS = $(SRCS:.c=.o) $(MAIN:.c=.o)
 
 .c.o :
 		$(CC) $(CFLAGS) -c $< -o $(<:.c=.o)
@@ -63,14 +56,13 @@ OBJS = $(SRCS:.c=.o)
 all : $(NAME)
 		
 $(NAME) : $(OBJS)
-		$(AR) $(AFLAGS) $@ $^
-		$(CC) $(CFLAGS) -o $(PROJ_NAME) $(NAME) $(MAIN)
+		$(CC) $(CFLAGS) $^ -o $@
 
 clean :
-		$(RM) $(OBJS) $(NAME)
+		$(RM) $(OBJS)
 
 fclean : clean
-		$(RM) $(PROJ_NAME)
+		$(RM) $(NAME)
 
 re : fclean all
 
