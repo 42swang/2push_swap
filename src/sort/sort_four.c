@@ -6,7 +6,7 @@
 /*   By: swang <swang@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/29 08:20:14 by swang             #+#    #+#             */
-/*   Updated: 2021/07/29 08:49:32 by swang            ###   ########.fr       */
+/*   Updated: 2021/07/29 11:23:05 by swang            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,11 +16,11 @@ static void	move_to_top(t_list *a, int time)
 {
 	if (time > 2)
 	{
-		while (time++ <= 4)
+		while (time++ <= a->scount)
 			rra(a);
 	}
 	else
-	{	
+	{
 		while (--time > 0)
 			ra(a);
 	}

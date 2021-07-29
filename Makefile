@@ -6,7 +6,7 @@
 #    By: swang <swang@student.42seoul.kr>           +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/07/29 08:34:04 by swang             #+#    #+#              #
-#    Updated: 2021/07/29 10:21:01 by swang            ###   ########.fr        #
+#    Updated: 2021/07/29 10:41:38 by swang            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -70,10 +70,7 @@ clean :
 		$(RM) $(OBJS) $(NAME)
 
 fclean : clean
-		$(RM) $(NAME) $(PROJ_NAME)
-
-run :
-		./$(PROJ_NAME)
+		$(RM) $(PROJ_NAME)
 
 re : fclean all
 
