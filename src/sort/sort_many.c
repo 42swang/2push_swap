@@ -6,7 +6,7 @@
 /*   By: swang <swang@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/29 08:50:12 by swang             #+#    #+#             */
-/*   Updated: 2021/07/29 08:51:10 by swang            ###   ########.fr       */
+/*   Updated: 2021/07/29 16:11:16 by swang            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@ static void	move_to_top_b(t_list *list, int time)
 {
 	if (list->count == 1)
 		return ;
-	if (time == 2)
+	else if (time == 2)
 		sb(list);
 	else if (time > list->count / 2)
 	{
@@ -34,7 +34,7 @@ static void	move_to_top_a(t_list *list, int time)
 {
 	if (list->count == 1)
 		return ;
-	if (time == 2)
+	else if (time == 2)
 		sa(list);
 	else if (time > list->count / 2)
 	{
@@ -48,17 +48,17 @@ static void	move_to_top_a(t_list *list, int time)
 	}
 }
 
-void	sort_atob(t_list *a, t_list *b, int all_count)
+void	sort_atob(t_list *a, t_list *b, int all_count, int range)
 {
 	int	i;
 	int	find;
 	int	chunk;
 
-	i = all_count / 10;
+	i = all_count / range;
 	while (i <= all_count)
 	{
 		a->pointer = a->head;
-		chunk = all_count / 10;
+		chunk = all_count / range;
 		while (a->pointer != 0 && 0 < chunk)
 		{
 			if (0 < a->pointer->idx && a->pointer->idx <= i)
@@ -72,7 +72,7 @@ void	sort_atob(t_list *a, t_list *b, int all_count)
 			else
 				a->pointer = a->pointer->next;
 		}
-		i += (all_count / 10);
+		i += (all_count / range);
 	}
 }
 
@@ -101,8 +101,13 @@ void	sort_btoa(t_list *a, t_list *b)
 void	sort_many(t_list *a, t_list *b)
 {
 	int	all_count;
+	int	range;
 
 	all_count = a->count;
-	sort_atob(a, b, all_count);
+	if (all_count < 10)
+		range = 3;
+	else
+		range = 10;
+	sort_atob(a, b, all_count, range);
 	sort_btoa(a, b);
 }

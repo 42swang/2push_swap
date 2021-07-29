@@ -6,7 +6,7 @@
 /*   By: swang <swang@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/29 08:20:01 by swang             #+#    #+#             */
-/*   Updated: 2021/07/29 12:02:15 by swang            ###   ########.fr       */
+/*   Updated: 2021/07/29 15:12:15 by swang            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,10 +34,6 @@ void	sort_five(t_list *a, t_list *b)
 	if (issort(a))
 		return ;
 	pb(a, b);
-	time = find_min(a);
-	move_to_top(a, time);
-	pb(a, b);
-	sort_three(a);
-	pa(b, a);
+	sort_four(a, b);
 	pa(b, a);
 }
